@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+import { chromium, defineConfig, devices } from '@playwright/test';
 
 
 
@@ -8,10 +8,14 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
-  
-  
+  timeout: 40 * 1000,
+  expect:{
+    timeout: 2 * 1000,
+  },
+  reporter:'html',
   use: {
-   
+   browserName : 'chromium',
+   headless: true
   
   },
 
